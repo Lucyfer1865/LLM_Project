@@ -15,7 +15,7 @@ warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 # interpolate any tasks and agents information
 
 load_dotenv()
-
+'''
 def run():
     """
     Run the crew.
@@ -29,6 +29,37 @@ def run():
         HistoryBuff().crew().kickoff(inputs=inputs)
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
+'''
 
+# Import necessary modules
+import os
+from dotenv import load_dotenv  # For loading environment variables
+from crew import HistoryBuff    # Import the crew class from crew.py
 
-run()
+# Load environment variables from .env file (for API keys, etc.)
+load_dotenv()
+
+def run():
+    """
+    Run the CrewAI HistoryBuff pipeline.
+    """
+
+    topic = input("Enter the topic for the history report: ")
+    # Define input parameters for the crew
+    inputs = {
+        'topic': topic,  # Example topic
+        'current_year': '2025'               # Example current year
+    }
+    try:
+        # Create and run the crew, passing in the inputs
+        result = HistoryBuff().crew().kickoff(inputs=inputs)
+        # Print the final report to the console
+        print("\n\nFinal Report:")
+        print(result)
+    except Exception as e:
+        # Print any errors that occur
+        print(f"Error: {str(e)}")
+
+# Entry point for script execution
+if __name__ == "__main__":
+    run()
