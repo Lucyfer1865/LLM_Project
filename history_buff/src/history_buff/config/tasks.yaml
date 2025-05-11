@@ -1,64 +1,24 @@
-
-#research_task:
-#  description: >
-#    Conduct a thorough research about {topic}
-#    Make sure you find any interesting and relevant information given
-#    the current year is {current_year}.
-#  expected_output: >
-#    A list with 10 bullet points of the most relevant information about {topic}
-#  agent: researcher
-
-#reporting_task:
-#  description: >
-#    Review the context you got and expand each topic into a full section for a report.
-#    Make sure the report is detailed and contains any and all relevant information.
-#  expected_output: >
-#    A fully fledged report with the main topics, each with a full section of information.
-#    Formatted as markdown without '```'
-#  agent: reporting_analyst
-
 # Task: Analyze the user's historical query
 query_analysis:
-  description: >
-    "Analyze user's historical query intent"
-  expected_output: >
-    "JSON with query type and key entities"
-  agent: >
-    query_decipherer
+  description: "Analyze the historical query: '{topic}'"
+  expected_output: JSON with query type and key entities
 
 # Task: Establish historical timeframe and locations
 temporal_context:
-  description: >
-    "Establish historical timeframe and locations"
-  expected_output: >
-    "JSON timeline boundaries and locations"
-  agent: >
-    temporal_specialist
+  description: "Establish historical timeframe and locations for: '{topic}'"
+  expected_output: JSON timeline boundaries and locations
 
 # Task: Conduct deep historical research
 research:
-  description:  >
-    "Conduct deep historical research on {topic}"
-  expected_output: >
-    "Verified historical data with sources"
-  agent: >
-    researcher
+  description: "Conduct deep historical research on: '{topic}'"
+  expected_output: Verified historical data with sources
 
 # Task: Generate visual timeline of events
 timeline_creation:
-  description: >
-    "Generate visual timeline of events"
-  expected_output: >
-    "Markdown timeline with dates and events"
-  agent: >
-    timeline_agent
+  description: "Generate visual timeline of events for: '{topic}'"
+  expected_output: Markdown timeline with dates and events
 
 # Task: Create final report with timeline
 reporting:
-  description: >
-    "Create final report with timeline"
-  expected_output: >
-    "Comprehensive markdown report"
-  agent: >
-    reporting_analyst
-
+  description: "Create final historical report about: '{topic}'"
+  expected_output: Comprehensive markdown report
